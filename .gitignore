@@ -1,0 +1,5 @@
+.venv/
+program.exe
+program
+*.txt
+*.csv
