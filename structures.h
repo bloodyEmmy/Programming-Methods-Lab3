@@ -11,4 +11,8 @@ struct LFSR_State {
     unsigned int counter;    
 };
 
+struct Xorshift_State {
+    unsigned int state;
+};
+
 #endif
