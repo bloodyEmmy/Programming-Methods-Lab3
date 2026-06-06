@@ -12,7 +12,6 @@
 using namespace std;
 using namespace std::chrono;
 
-// Функция для экспорта данных (для NIST)
 void export_to_file(const vector<vector<unsigned int>>& data, const string& filename) {
     ofstream out(filename);
     for (int i = 0; i < data.size(); ++i) {
@@ -24,7 +23,6 @@ void export_to_file(const vector<vector<unsigned int>>& data, const string& file
     out.close();
 }
 
-// Функция для замера времени (в микросекундах)
 long long measure_time(int method, int count, unsigned int base_seed) {
     auto start = high_resolution_clock::now();
 
@@ -56,7 +54,6 @@ int main() {
     vector<vector<unsigned int>> selections_method2(20, vector<unsigned int>(1000));
     vector<vector<unsigned int>> selections_method3(20, vector<unsigned int>(1000));
     
-    // --- 1. ГЕНЕРАЦИЯ ---
     LCG_State state1; state1.current_value = base_seed;
     for (int i = 0; i < 20; ++i)
         for (int j = 0; j < 1000; ++j) selections_method1[i][j] = my_custom_lcg(state1);
@@ -68,10 +65,8 @@ int main() {
     Xorshift_State state3; state3.state = base_seed;
     for (int i = 0; i < 20; ++i)
         for (int j = 0; j < 1000; ++j) selections_method3[i][j] = my_xorshift_star(state3);
-    
     cout << "1. Генерация завершена." << endl;
 
-    // --- 2. БАЗОВАЯ СТАТИСТИКА ---
     cout << "\n2. Базовая статистика (выборка 0):" << endl;
     SampleStats stats1 = calculate_stats(selections_method1[0]);
     cout << "LCG: Среднее=" << stats1.mean << " | Откл=" << stats1.std_deviation << " | CV=" << stats1.coef_variation << "%" << endl;
@@ -80,7 +75,6 @@ int main() {
     SampleStats stats3 = calculate_stats(selections_method3[0]);
     cout << "Xorshift*: Среднее=" << stats3.mean << " | Откл=" << stats3.std_deviation << " | CV=" << stats3.coef_variation << "%" << endl;
 
-    // --- 3. ХИ-КВАДРАТ ---
     cout << "\n3. Проверка Хи-квадрат (из 20 выборок):" << endl;
     int unif1 = 0, unif2 = 0, unif3 = 0;
     int indep1 = 0, indep2 = 0, indep3 = 0;
@@ -99,13 +93,11 @@ int main() {
     cout << "LFSR: Равномерность " << unif2 << "/20 | Случайность " << indep2 << "/20" << endl;
     cout << "Xorshift*: Равномерность " << unif3 << "/20 | Случайность " << indep3 << "/20" << endl;
 
-    // --- 4. ЭКСПОРТ ДЛЯ NIST ---
     export_to_file(selections_method1, "method1.txt");
     export_to_file(selections_method2, "method2.txt");
     export_to_file(selections_method3, "method3.txt");
     cout << "\n4. Файлы для тестов NIST сохранены." << endl;
 
-    // --- 5. БЕНЧМАРК (ЗАМЕРЫ СКОРОСТИ) ---
     cout << "\n5. Запуск замеров скорости..." << endl;
     vector<int> sizes = {1000, 10000, 100000, 1000000};
     ofstream out("benchmark.csv");
