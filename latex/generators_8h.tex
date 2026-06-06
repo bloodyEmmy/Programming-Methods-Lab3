@@ -1,0 +1,85 @@
+\doxysection{generators.\+h File Reference}
+\hypertarget{generators_8h}{}\label{generators_8h}\index{generators.h@{generators.h}}
+
+
+Объявление функций генерации псевдослучайных чисел.  
+
+
+{\ttfamily \#include "{}structures.\+h"{}}\newline
+Include dependency graph for generators.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{generators_8h_ae38937d95e6641ddf091f5076205657b}{my\+\_\+custom\+\_\+lcg}} (\mbox{\hyperlink{structLCG__State}{LCG\+\_\+\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Линейный конгруэнтный генератор (LCG) с битовым скремблингом. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{generators_8h_a797f79704078164f829407423b3d64a0}{my\+\_\+hybrid\+\_\+lfsr}} (\mbox{\hyperlink{structLFSR__State}{LFSR\+\_\+\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Гибридный регистр сдвига с линейной обратной связью (LFSR). \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{generators_8h_ac2d0227bc60c02a638a184ead2fd0349}{my\+\_\+xorshift\+\_\+star}} (\mbox{\hyperlink{structXorshift__State}{Xorshift\+\_\+\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Генератор Xorshift\texorpdfstring{$\ast$}{*} (модификация со звездочкой). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Объявление функций генерации псевдослучайных чисел. 
+
+Содержит три различных алгоритма\+: LCG со скремблингом, гибридный LFSR и современный Xorshift\texorpdfstring{$\ast$}{*}. 
+
+\label{doc-func-members}
+\Hypertarget{generators_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{generators_8h_ae38937d95e6641ddf091f5076205657b}\index{generators.h@{generators.h}!my\_custom\_lcg@{my\_custom\_lcg}}
+\index{my\_custom\_lcg@{my\_custom\_lcg}!generators.h@{generators.h}}
+\doxysubsubsection{\texorpdfstring{my\_custom\_lcg()}{my\_custom\_lcg()}}
+{\footnotesize\ttfamily \label{generators_8h_ae38937d95e6641ddf091f5076205657b} 
+unsigned int my\+\_\+custom\+\_\+lcg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLCG__State}{LCG\+\_\+\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Линейный конгруэнтный генератор (LCG) с битовым скремблингом. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Ссылка на структуру состояния LCG. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Псевдослучайное число в диапазоне \mbox{[}0, 9999\mbox{]}. 
+\end{DoxyReturn}
+\Hypertarget{generators_8h_a797f79704078164f829407423b3d64a0}\index{generators.h@{generators.h}!my\_hybrid\_lfsr@{my\_hybrid\_lfsr}}
+\index{my\_hybrid\_lfsr@{my\_hybrid\_lfsr}!generators.h@{generators.h}}
+\doxysubsubsection{\texorpdfstring{my\_hybrid\_lfsr()}{my\_hybrid\_lfsr()}}
+{\footnotesize\ttfamily \label{generators_8h_a797f79704078164f829407423b3d64a0} 
+unsigned int my\+\_\+hybrid\+\_\+lfsr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLFSR__State}{LFSR\+\_\+\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Гибридный регистр сдвига с линейной обратной связью (LFSR). 
+
+Использует примитивный полином и 32-\/кратную прокрутку для устранения зависимости соседних элементов. Смешивает булеву алгебру и арифметику. 
+\begin{DoxyParams}{Parameters}
+{\em state} & Ссылка на структуру состояния LFSR. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Псевдослучайное число в диапазоне \mbox{[}0, 9999\mbox{]}. 
+\end{DoxyReturn}
+\Hypertarget{generators_8h_ac2d0227bc60c02a638a184ead2fd0349}\index{generators.h@{generators.h}!my\_xorshift\_star@{my\_xorshift\_star}}
+\index{my\_xorshift\_star@{my\_xorshift\_star}!generators.h@{generators.h}}
+\doxysubsubsection{\texorpdfstring{my\_xorshift\_star()}{my\_xorshift\_star()}}
+{\footnotesize\ttfamily \label{generators_8h_ac2d0227bc60c02a638a184ead2fd0349} 
+unsigned int my\+\_\+xorshift\+\_\+star (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structXorshift__State}{Xorshift\+\_\+\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Генератор Xorshift\texorpdfstring{$\ast$}{*} (модификация со звездочкой). 
+
+Использует битовые сдвиги и умножение на большую константу для достижения строгого лавинного эффекта. 
+\begin{DoxyParams}{Parameters}
+{\em state} & Ссылка на структуру состояния Xorshift. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Псевдослучайное число в диапазоне \mbox{[}0, 9999\mbox{]}. 
+\end{DoxyReturn}

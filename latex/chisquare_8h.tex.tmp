@@ -1,0 +1,65 @@
+\doxysection{chisquare.\+h File Reference}
+\hypertarget{chisquare_8h}{}\label{chisquare_8h}\index{chisquare.h@{chisquare.h}}
+
+
+Статистические тесты по критерию Пирсона (Хи-\/квадрат).  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for chisquare.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{chisquare_8h_a461218d6bf198dc62c0afc1a98387cde}{calculate\+\_\+chi\+\_\+square\+\_\+uniformity}} (const std\+::vector$<$ unsigned int $>$ \&sample)
+\begin{DoxyCompactList}\small\item\em Проверка выборки на равномерность распределения. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{chisquare_8h_a50a7065617e3b87fb6891b6d03d2df7e}{calculate\+\_\+chi\+\_\+square\+\_\+independence}} (const std\+::vector$<$ unsigned int $>$ \&sample)
+\begin{DoxyCompactList}\small\item\em Проверка выборки на случайность (сериальный тест пар). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Статистические тесты по критерию Пирсона (Хи-\/квадрат). 
+
+
+
+\label{doc-func-members}
+\Hypertarget{chisquare_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{chisquare_8h_a50a7065617e3b87fb6891b6d03d2df7e}\index{chisquare.h@{chisquare.h}!calculate\_chi\_square\_independence@{calculate\_chi\_square\_independence}}
+\index{calculate\_chi\_square\_independence@{calculate\_chi\_square\_independence}!chisquare.h@{chisquare.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_chi\_square\_independence()}{calculate\_chi\_square\_independence()}}
+{\footnotesize\ttfamily \label{chisquare_8h_a50a7065617e3b87fb6891b6d03d2df7e} 
+double calculate\+\_\+chi\+\_\+square\+\_\+independence (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{sample}{}\end{DoxyParamCaption})}
+
+
+
+Проверка выборки на случайность (сериальный тест пар). 
+
+Исследует независимость соседних элементов, формируя матрицу частот 10x10. Порог для 99 степеней свободы и альфа 0.\+05 равен 123.\+2. 
+\begin{DoxyParams}{Parameters}
+{\em sample} & Константная ссылка на вектор чисел. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Вычисленное значение критерия Хи-\/квадрат. 
+\end{DoxyReturn}
+\Hypertarget{chisquare_8h_a461218d6bf198dc62c0afc1a98387cde}\index{chisquare.h@{chisquare.h}!calculate\_chi\_square\_uniformity@{calculate\_chi\_square\_uniformity}}
+\index{calculate\_chi\_square\_uniformity@{calculate\_chi\_square\_uniformity}!chisquare.h@{chisquare.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_chi\_square\_uniformity()}{calculate\_chi\_square\_uniformity()}}
+{\footnotesize\ttfamily \label{chisquare_8h_a461218d6bf198dc62c0afc1a98387cde} 
+double calculate\+\_\+chi\+\_\+square\+\_\+uniformity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{sample}{}\end{DoxyParamCaption})}
+
+
+
+Проверка выборки на равномерность распределения. 
+
+Разбивает числа на 10 интервалов и сравнивает их частоты с ожидаемыми (100). Порог для 9 степеней свободы и альфа 0.\+05 равен 16.\+919. 
+\begin{DoxyParams}{Parameters}
+{\em sample} & Константная ссылка на вектор чисел. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Вычисленное значение критерия Хи-\/квадрат. 
+\end{DoxyReturn}

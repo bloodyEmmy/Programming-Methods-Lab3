@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @brief Точка входа в программу. Запуск генерации, тестов и бенчмарков.
+ */
+
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -12,6 +17,11 @@
 using namespace std;
 using namespace std::chrono;
 
+/**
+ * @brief Экспортирует сгенерированные матрицы в текстовый файл для тестов NIST.
+ * @param data Двумерный вектор (матрица) с результатами генерации.
+ * @param filename Имя выходного файла (например, "method1.txt").
+ */
 void export_to_file(const vector<vector<unsigned int>>& data, const string& filename) {
     ofstream out(filename);
     for (int i = 0; i < data.size(); ++i) {
@@ -23,6 +33,13 @@ void export_to_file(const vector<vector<unsigned int>>& data, const string& file
     out.close();
 }
 
+/**
+ * @brief Замеряет время выполнения заданного алгоритма генерации.
+ * @param method Номер метода (1 - LCG, 2 - LFSR, 3 - Xorshift*, 4 - std::rand).
+ * @param count Количество чисел для генерации (объем выборки).
+ * @param base_seed Стартовое значение (seed) для инициализации состояния.
+ * @return Время выполнения в микросекундах.
+ */
 long long measure_time(int method, int count, unsigned int base_seed) {
     auto start = high_resolution_clock::now();
 
@@ -47,6 +64,11 @@ long long measure_time(int method, int count, unsigned int base_seed) {
     return duration_cast<microseconds>(end - start).count();
 }
 
+/**
+ * @brief Главная функция программы. 
+ * Управляет логикой вызова всех подпрограмм.
+ * @return 0 при успешном завершении.
+ */
 int main() {
     unsigned int base_seed = time(NULL);
 

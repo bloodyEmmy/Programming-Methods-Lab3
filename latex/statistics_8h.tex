@@ -1,0 +1,50 @@
+\doxysection{statistics.\+h File Reference}
+\hypertarget{statistics_8h}{}\label{statistics_8h}\index{statistics.h@{statistics.h}}
+
+
+Расчет базовых статистических метрик для выборки.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for statistics.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSampleStats}{Sample\+Stats}}
+\begin{DoxyCompactList}\small\item\em Структура для хранения результатов статистического анализа. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSampleStats}{Sample\+Stats}} \mbox{\hyperlink{statistics_8h_ac6b3c5a94ece8fbf2f886e003b1ce898}{calculate\+\_\+stats}} (const std\+::vector$<$ unsigned int $>$ \&sample)
+\begin{DoxyCompactList}\small\item\em Вычисляет базовую статистику для вектора данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Расчет базовых статистических метрик для выборки. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{statistics_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{statistics_8h_ac6b3c5a94ece8fbf2f886e003b1ce898}\index{statistics.h@{statistics.h}!calculate\_stats@{calculate\_stats}}
+\index{calculate\_stats@{calculate\_stats}!statistics.h@{statistics.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_stats()}{calculate\_stats()}}
+{\footnotesize\ttfamily \label{statistics_8h_ac6b3c5a94ece8fbf2f886e003b1ce898} 
+\mbox{\hyperlink{structSampleStats}{Sample\+Stats}} calculate\+\_\+stats (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{sample}{}\end{DoxyParamCaption})}
+
+
+
+Вычисляет базовую статистику для вектора данных. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Константная ссылка на вектор псевдослучайных чисел. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Структура \doxylink{structSampleStats}{Sample\+Stats} с вычисленными метриками. 
+\end{DoxyReturn}

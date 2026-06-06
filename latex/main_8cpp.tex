@@ -1,0 +1,90 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Точка входа в программу. Запуск генерации, тестов и бенчмарков.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include "{}structures.\+h"{}}\newline
+{\ttfamily \#include "{}generators.\+h"{}}\newline
+{\ttfamily \#include "{}statistics.\+h"{}}\newline
+{\ttfamily \#include "{}chisquare.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a5934032030146c92adf354c49a218254}{export\+\_\+to\+\_\+file}} (const vector$<$ vector$<$ unsigned int $>$ $>$ \&data, const string \&filename)
+\begin{DoxyCompactList}\small\item\em Экспортирует сгенерированные матрицы в текстовый файл для тестов NIST. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{main_8cpp_ad94e9bcb6224bb1259ee2d74abd47d7e}{measure\+\_\+time}} (int method, int count, unsigned int base\+\_\+seed)
+\begin{DoxyCompactList}\small\item\em Замеряет время выполнения заданного алгоритма генерации. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Главная функция программы. Управляет логикой вызова всех подпрограмм. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Точка входа в программу. Запуск генерации, тестов и бенчмарков. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a5934032030146c92adf354c49a218254}\index{main.cpp@{main.cpp}!export\_to\_file@{export\_to\_file}}
+\index{export\_to\_file@{export\_to\_file}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{export\_to\_file()}{export\_to\_file()}}
+{\footnotesize\ttfamily \label{main_8cpp_a5934032030146c92adf354c49a218254} 
+void export\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ unsigned int $>$ $>$ \&}]{data}{, }\item[{const string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Экспортирует сгенерированные матрицы в текстовый файл для тестов NIST. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Двумерный вектор (матрица) с результатами генерации. \\
+\hline
+{\em filename} & Имя выходного файла (например, "{}method1.\+txt"{}). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Главная функция программы. Управляет логикой вызова всех подпрограмм. 
+
+\begin{DoxyReturn}{Returns}
+0 при успешном завершении. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ad94e9bcb6224bb1259ee2d74abd47d7e}\index{main.cpp@{main.cpp}!measure\_time@{measure\_time}}
+\index{measure\_time@{measure\_time}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{measure\_time()}{measure\_time()}}
+{\footnotesize\ttfamily \label{main_8cpp_ad94e9bcb6224bb1259ee2d74abd47d7e} 
+long long measure\+\_\+time (\begin{DoxyParamCaption}\item[{int}]{method}{, }\item[{int}]{count}{, }\item[{unsigned int}]{base\+\_\+seed}{}\end{DoxyParamCaption})}
+
+
+
+Замеряет время выполнения заданного алгоритма генерации. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em method} & Номер метода (1 -\/ LCG, 2 -\/ LFSR, 3 -\/ Xorshift\texorpdfstring{$\ast$}{*}, 4 -\/ std\+::rand). \\
+\hline
+{\em count} & Количество чисел для генерации (объем выборки). \\
+\hline
+{\em base\+\_\+seed} & Стартовое значение (seed) для инициализации состояния. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Время выполнения в микросекундах. 
+\end{DoxyReturn}
